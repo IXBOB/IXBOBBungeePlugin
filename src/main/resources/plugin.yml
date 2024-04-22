@@ -1,0 +1,8 @@
+name: IXBOBBungeePlugin
+main: com.ixbob.bungeeplugin.Main
+version: 1.0
+author: IXBOB
+commands:
+  lobby:
+    description: return to the lobby.
+    usage: /<command>
