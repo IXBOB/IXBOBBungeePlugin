@@ -8,8 +8,6 @@ import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
 
-import java.util.Objects;
-
 public class CommandLobby extends Command {
 
     public CommandLobby() {
