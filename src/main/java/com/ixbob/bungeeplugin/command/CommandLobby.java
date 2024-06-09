@@ -1,5 +1,6 @@
 package com.ixbob.bungeeplugin.command;
 
+import com.ixbob.bungeeplugin.enums.ServerNameEnum;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.ProxyServer;
@@ -22,7 +23,7 @@ public class CommandLobby extends Command {
                 player.sendMessage(new ComponentBuilder("您已经连接在此服务器了!").color(ChatColor.RED).create());
             } else {
                 player.sendMessage(new ComponentBuilder("正在将您转移至大厅服务器...").color(ChatColor.YELLOW).create());
-                ServerInfo target = ProxyServer.getInstance().getServerInfo("lobby");
+                ServerInfo target = ProxyServer.getInstance().getServerInfo(ServerNameEnum.LOBBY.getServerName());
                 player.connect(target);
             }
         } else {

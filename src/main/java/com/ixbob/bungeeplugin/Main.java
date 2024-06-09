@@ -2,6 +2,7 @@ package com.ixbob.bungeeplugin;
 
 import com.ixbob.bungeeplugin.command.CommandLobby;
 import com.ixbob.bungeeplugin.event.OnLoginListener;
+import com.ixbob.bungeeplugin.event.OnReceiveLobbyMessageListener;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
@@ -25,11 +26,15 @@ public class Main extends Plugin {
         createConfig();
         loadConfig();
 
+        getProxy().registerChannel("ixbob_thepit:bungeecord");
+
         getProxy().getPluginManager().registerCommand(this, new CommandLobby());
 
         Listener onClientConnectListener = new OnLoginListener();
         getProxy().getPluginManager().registerListener(this, onClientConnectListener);
 
+        Listener onReceiveLobbyMessageListener = new OnReceiveLobbyMessageListener();
+        getProxy().getPluginManager().registerListener(this, onReceiveLobbyMessageListener);
     }
 
     public static Main getInstance() {
