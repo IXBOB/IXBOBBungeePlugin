@@ -1,7 +1,7 @@
 package com.ixbob.bungeeplugin;
 
 import com.ixbob.bungeeplugin.command.CommandLobby;
-import com.ixbob.bungeeplugin.event.OnClientConnectListener;
+import com.ixbob.bungeeplugin.event.OnLoginListener;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
@@ -11,7 +11,6 @@ import net.md_5.bungee.config.YamlConfiguration;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.logging.Level;
 
 public class Main extends Plugin {
@@ -28,7 +27,7 @@ public class Main extends Plugin {
 
         getProxy().getPluginManager().registerCommand(this, new CommandLobby());
 
-        Listener onClientConnectListener = new OnClientConnectListener();
+        Listener onClientConnectListener = new OnLoginListener();
         getProxy().getPluginManager().registerListener(this, onClientConnectListener);
 
     }

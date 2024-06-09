@@ -3,17 +3,17 @@ package com.ixbob.bungeeplugin.event;
 import com.ixbob.bungeeplugin.Main;
 import com.ixbob.bungeeplugin.auth.Auth;
 import com.ixbob.bungeeplugin.util.Utils;
-import net.md_5.bungee.api.event.ClientConnectEvent;
+import net.md_5.bungee.api.event.LoginEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
 
 import java.io.IOException;
 import java.util.logging.Level;
 
-public class OnClientConnectListener implements Listener {
+public class OnLoginListener implements Listener {
     @EventHandler
-    public void onClientConnect(ClientConnectEvent event) {
-        String ip = Utils.removeAfterColon(event.getSocketAddress().toString());
+    public void onLoginEvent(LoginEvent event) {
+        String ip = Utils.removeAfterColon(event.getConnection().getSocketAddress().toString());
         System.out.println(ip);
 
         if (Main.getInstance().getConfig().getStringList("banned_ips").contains(ip)) {
